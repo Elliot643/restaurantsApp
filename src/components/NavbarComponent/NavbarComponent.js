@@ -1,6 +1,6 @@
 import React from 'react';
 import './NavbarComponent.css';
-
+import {Link} from 'react-router-dom';
 
 const NavbarComponent = (props) => {
 
@@ -9,23 +9,24 @@ const NavbarComponent = (props) => {
         
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="theNavbar">
             <a class="navbar-brand" href="#"></a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/"> Login </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"> Register </a>
-                    </li>
+                    <Link to="/">Home</Link>
+                    <Link to="/login">Login</Link>
+                    <Link to="/signup">Sign up</Link>
+                    <Link to="/user"> User </Link>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="my-2 my-sm-0" id="submitBtn" type="submit">Search</button>
+
+                <form className="form-inline">
+                    <input className="form-control" type="search" placeholder="Search" aria-label="Search" id="searchBar" />
+                    <button id="submitBtn" type="submit">Search </button>
                 </form>
+
             </div>
         </nav>
              

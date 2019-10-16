@@ -10,15 +10,8 @@ class UserPage extends React.Component {
    
     render() {
 
-        //Navbar
-        const navbar = <NavbarComponent />
-
         return (
           <React.Fragment>
-            {navbar}
-            <br />
-            <br />
-
             <h4>User Page</h4>
             <hr />
           </React.Fragment>

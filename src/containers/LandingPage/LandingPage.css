@@ -1,6 +1,13 @@
 
 
 
+.LandingPageTitle {
+    /*textAlign: "center";*/ 
+    color: red;
+    margin: 40px;
+}
+
+
 .cardWrapper {
     display: grid;
     grid-gap: 20px;

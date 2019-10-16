@@ -2,19 +2,31 @@
 /*NAVBAR*/
 #theNavbar {
     border-radius: 0;
-    background-color: transparent !important;
+    background-color: #222;
 }
 
 /*Navbar Links*/
 #theNavbar a {
     color: #fff;
     font-size: 18px;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    
 }
 #theNavbar a:hover {
     /*text-shadow: 0px 1px 4px rgb(93, 255, 128);*/
     text-shadow: 0px 1px 4px rgb(248, 63, 103);
 }
 
+.form-inline {
+    margin-right: 5%;
+}
+
+
+#searchBar {
+    margin-right: 10px;
+}
 #submitBtn {
     width: 100px;
     padding: 5px;

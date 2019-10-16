@@ -2,6 +2,7 @@ import React from 'react';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 import ReviewComponent from '../../components/ReviewComponent/ReviewComponent';
 import NavbarComponent from '../../components/NavbarComponent/NavbarComponent';
+import './LandingPage.css';
 
 
 
@@ -63,14 +64,7 @@ class LandingPage extends React.Component {
       ]
     };
 
-    
-
     render() {
-
-        //Navbar
-        const navbar = <NavbarComponent />
-
-
 
         //Cards
         const cards = this.state.resturantArray.map(value => (
@@ -80,19 +74,15 @@ class LandingPage extends React.Component {
             />
         ));
 
-
         //Review
         const review = <ReviewComponent />
+
 
 
         //Here we call on the varibiles that contains the components and puts them in a div.
         return (
           <React.Fragment>
-            {navbar}
-            <br />
-            <br />
-
-            <h4>Resturant Landing Page</h4>
+            <h1 className="LandingPageTitle">Resturant Landing Page</h1>
             <hr />
 
               <div className="reviewDiv">
