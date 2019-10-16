@@ -82,19 +82,22 @@ class LandingPage extends React.Component {
         //Here we call on the varibiles that contains the components and puts them in a div.
         return (
           <React.Fragment>
-            <h1 className="LandingPageTitle">Resturant Landing Page</h1>
-            <hr />
+            <h1 className="LandingPageTitle">Home Page</h1>
+           
+            <div className="wrapper">
 
               <div className="reviewDiv">
                 {review}
               </div>
 
+              <div className="cardsDiv">
+              {/* <h3>Top 5 Resturants</h3> */}
+                <div className="cardGrid">
+                  {cards}
+                </div>
+              </div>
 
-            <div className="cardWrapper">
-                {cards}
             </div>
-
-       
           </React.Fragment>
         )
     }

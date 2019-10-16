@@ -9,8 +9,9 @@ const ReviewComponent = (props) => {
         
         <div className='reviewContainer'>
             <div className='reviewBody'>
-                <h1>This is the review Component</h1>
-                <h2><MapComponent address="Klostergatan 6, Växjö"/></h2>
+                <hr />
+                    <h2>Review component body</h2>
+                <hr />
             </div>
         </div>
              
