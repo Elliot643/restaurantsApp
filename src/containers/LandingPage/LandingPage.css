@@ -1,0 +1,10 @@
+
+
+
+.cardWrapper {
+    display: grid;
+    grid-gap: 20px;
+    grid-auto-flow: auto;
+    /*AUTO fit*/
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
