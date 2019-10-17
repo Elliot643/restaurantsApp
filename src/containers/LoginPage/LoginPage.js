@@ -1,5 +1,4 @@
 import React from 'react';
-import NavbarComponent from '../../components/NavbarComponent/NavbarComponent';
 
 
 class LoginPage extends React.Component {

@@ -8,19 +8,24 @@ const RestaurantCard = (props) => {
         <div className="card">
             <hr />
             <div className="cardHead">
-                <h2>{props.resturant_name}</h2>        
-                <p>Rating : {props.Reviewrating}</p>
-                <p>Address :{props.address}</p>
+                <h2>{props.resturant_name}</h2> 
+                <p>Address :{props.address}</p>       
             </div>
-            <hr />
-
             <img src= {require('../../images/background.jpg')} className='img-fluid' />
+            <hr />
             <div className="cardBody">
-                Card body here!
-                <p>{props.rating}</p>
+                <p>Rating : {props.Reviewrating}</p>
             </div>
         </div>        
     )
 };
 
 export default RestaurantCard
+
+
+{/* 
+resturant_name = {value.name}
+            reviewer = {value.reviewer}
+            Reviewrating = {value.rating}
+            address = {value.address}
+*/}
