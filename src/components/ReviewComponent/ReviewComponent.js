@@ -1,5 +1,6 @@
 import React from 'react';
 import './ReviewComponent.css';
+import MapComponent from "../MapComponent/MapComponent"
 
 
 const ReviewComponent = (props) => {
@@ -8,7 +9,11 @@ const ReviewComponent = (props) => {
         
         <div className='reviewContainer'>
             <div className='reviewBody'>
-                <h1>This is the review Component</h1>
+                <hr />
+                <h2>Review component body</h2>                        
+                        
+                <p>text :{props.text}</p>
+                <hr />
             </div>
         </div>
              

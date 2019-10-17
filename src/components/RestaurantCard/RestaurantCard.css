@@ -1,5 +1,6 @@
 
 
+/*Desktop Mode*/
 
 .card {
     background-color: #fff;
@@ -14,3 +15,58 @@
     -webkit-box-shadow: 0 0 10px #222;
     box-shadow: 0 0 10px #222;
 }
+
+h2 {
+    text-align: center;
+    font-size: 25px;
+}
+
+/*End of Desktop Mode*/
+   
+ 
+   /*Mobile Potrait mode*/
+   
+   @media (min-width: 360px) and (max-width: 700px) {
+    .card {
+        background-color: #fff;
+        width: 300px;
+        height: 600px;
+        border-radius: 5px;
+        border: 0;
+        padding: 5px;
+        margin: 10px;
+    
+        -moz-box-shadow: 0 0 10px #222;
+        -webkit-box-shadow: 0 0 10px #222;
+        box-shadow: 0 0 10px #222;
+    }
+    
+    h2 {
+        text-align: center;
+        font-size: 25px;
+    }
+   }
+   
+   /* Tablets, Ipads: portrait mode.*/
+   
+   @media (min-width: 768px) and (max-width: 1024px) {
+    .card {
+        background-color: #fff;
+        width: 300px;
+        height: 600px;
+        border-radius: 5px;
+        border: 0;
+        padding: 5px;
+        margin: 10px;
+    
+        -moz-box-shadow: 0 0 10px #222;
+        -webkit-box-shadow: 0 0 10px #222;
+        box-shadow: 0 0 10px #222;
+    }
+    
+    h2 {
+        text-align: center;
+        font-size: 25px;
+    }
+     
+   }

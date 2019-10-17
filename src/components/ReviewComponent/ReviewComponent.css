@@ -2,7 +2,7 @@
 .reviewContainer {
     background-color: blueviolet;
     width: 300px;
-    height: 600px;
+    height: auto;
     border-radius: 5px;
     border: 0;
     padding: 5px;
@@ -11,5 +11,73 @@
     -moz-box-shadow: 0 0 10px #222;
     -webkit-box-shadow: 0 0 10px #222;
     box-shadow: 0 0 10px #222;
-
 }
+
+
+
+
+/*Desktop Mode*/
+
+.wrapper {
+    background-color: rgb(83, 121, 83);
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+ }
+ 
+ .LandingPageTitle {
+     text-align: center;
+     color: #fff;
+     text-shadow: 1px 1px 5px #222;
+     margin: 40px;
+ }
+ .reviewDiv {
+     float: left;
+ }
+ 
+ .cardWrapper {
+     background-color: rgb(226, 162, 43);
+     display: grid;
+     grid-gap: 10px;
+     grid-auto-flow: auto;
+     /*AUTO fit*/
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ }
+ /* End of Desktop Mode*/
+   
+ 
+   /*Mobile Potrait mode*/
+   
+   @media (min-width: 360px) and (max-width: 700px) {
+     .resturantBody {
+       background-color: #fff;
+       margin-top: 5%;
+       margin-right: 5%;
+       margin-left: 5%;
+       margin-bottom: 30%;
+       padding: 3%;
+       border-radius: 5px;
+       -moz-box-shadow: 0 0 10px #222;
+       -webkit-box-shadow: 0 0 10px #222;
+       box-shadow: 0 0 10px #222;
+     }
+     
+   }
+   
+   /* Tablets, Ipads: portrait mode.*/
+   
+   @media (min-width: 768px) and (max-width: 1024px) {
+     .resturantBody {
+       background-color: #fff;
+       margin-top: 5%;
+       margin-right: 2%;
+       margin-left: 2%;
+       margin-bottom: 30%;
+       padding: 3%;
+       border-radius: 5px;
+       -moz-box-shadow: 0 0 10px #222;
+       -webkit-box-shadow: 0 0 10px #222;
+       box-shadow: 0 0 10px #222;
+     }
+     
+   }

@@ -1,17 +1,126 @@
 
 
 
+/*Desktop Mode*/
+
+.wrapper {
+   background-color: rgb(83, 121, 83);
+   margin-right: 5%;
+   margin-left: 5%;
+   margin-bottom: 5%;
+}
+
 .LandingPageTitle {
-    /*textAlign: "center";*/ 
-    color: red;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 5px #222;
+    margin: 40px;
+}
+
+h3 {
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 5px #222;
     margin: 40px;
 }
 
 
-.cardWrapper {
+
+.reviewDiv {
+    float: left;
+}
+
+.cardGrid {
+    background-color: rgb(226, 162, 43);
     display: grid;
-    grid-gap: 20px;
+    grid-gap: 10px;
     grid-auto-flow: auto;
     /*AUTO fit*/
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+/* End of Desktop Mode*/
+  
+
+  /*Mobile Potrait mode*/
+  
+  @media (min-width: 360px) and (max-width: 700px) {
+    
+.wrapper {
+    background-color: rgb(83, 121, 83);
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+ }
+ 
+ .LandingPageTitle {
+     text-align: center;
+     color: #fff;
+     font-size: 30px;
+     text-shadow: 1px 1px 5px #222;
+     margin: 20px;
+ }
+ 
+ h3 {
+     text-align: center;
+     color: #fff;
+     text-shadow: 1px 1px 5px #222;
+     margin: 40px;
+ }
+ 
+ 
+ 
+ .reviewDiv {
+     float: none;
+ }
+ 
+ .cardGrid {
+     background-color: rgb(226, 162, 43);
+     display: grid;
+     grid-gap: 10px;
+     grid-auto-flow: auto;
+     /*AUTO fit*/
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ }
+    
+  }
+  
+  /* Tablets, Ipads: portrait mode.*/
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    
+.wrapper {
+    background-color: rgb(83, 121, 83);
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+ }
+ 
+ .LandingPageTitle {
+     text-align: center;
+     color: #fff;
+     text-shadow: 1px 1px 5px #222;
+     margin: 40px;
+ }
+ 
+ h3 {
+     text-align: center;
+     color: #fff;
+     text-shadow: 1px 1px 5px #222;
+     margin: 40px;
+ }
+ 
+ 
+ 
+ .reviewDiv {
+     float: left;
+ }
+ 
+ .cardGrid {
+     background-color: rgb(226, 162, 43);
+     display: grid;
+     grid-gap: 10px;
+     grid-auto-flow: auto;
+     /*AUTO fit*/
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ }
+  }

@@ -19,6 +19,7 @@ const NavbarComponent = (props) => {
                     <Link to="/">Home</Link>
                     <Link to="/login">Login</Link>
                     <Link to="/signup">Sign up</Link>
+                    <Link to="/resturant"> Resturant </Link>
                     <Link to="/user"> User </Link>
                 </ul>
 

@@ -64,7 +64,7 @@ class LandingPage extends React.Component {
         <RestaurantCard
             resturant_name = {value.name}
             reviewer = {value.reviewer}
-            rating = {value.rating}
+            Reviewrating = {value.rating}
             address = {value.address}
             
         />

@@ -7,6 +7,7 @@ import LandingPage from './containers/LandingPage/LandingPage';
 import UserPage from './containers/UserPage/UserPage';
 import LoginPage from './containers/LoginPage/LoginPage';
 import SignuPage from './containers/SignupPage/SignupPage';
+import ResturantPage from './containers/ResturantPage/ResturantPage';
 
 class App extends Component {
   render() {
@@ -22,6 +23,9 @@ class App extends Component {
                   </Route>
                   <Route path="/signup">
                       <SignuPage />
+                  </Route>
+                  <Route path="/resturant">
+                      <ResturantPage />
                   </Route>
                   <Route path="/">
                       <LandingPage />
