@@ -12,7 +12,9 @@ const RestaurantCard = (props) => {
                     <div className='card'>
                         <div className='cardBody'>
                             <h1>{props.resturant_name}</h1>
-                            {props.rating}
+                            <h5>By :{props.reviewer}</h5>
+                              <p>Rating : {props.rating}</p>
+                              <p>Address :{props.address}</p>
                         </div>
                         <div className='cardFooter'>
                         <img src={imgUrl} alt="#" width="100"/>
