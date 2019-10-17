@@ -8,7 +8,9 @@ const RestaurantCard = (props) => {
         <div className="card">
             <hr />
             <div className="cardHead">
-                <h2>{props.resturant_name}</h2>
+                <h2>{props.resturant_name}</h2>        
+                <p>Rating : {props.Reviewrating}</p>
+                <p>Address :{props.address}</p>
             </div>
             <hr />
 

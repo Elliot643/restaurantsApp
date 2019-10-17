@@ -10,7 +10,9 @@ const ReviewComponent = (props) => {
         <div className='reviewContainer'>
             <div className='reviewBody'>
                 <hr />
-                    <h2>Review component body</h2>
+                <h2>Review component body</h2>                        
+                        
+                <p>text :{props.text}</p>
                 <hr />
             </div>
         </div>

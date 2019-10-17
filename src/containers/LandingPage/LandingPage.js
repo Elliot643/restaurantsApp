@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 import ReviewComponent from '../../components/ReviewComponent/ReviewComponent';
 import NavbarComponent from '../../components/NavbarComponent/NavbarComponent';
@@ -9,96 +10,85 @@ import './LandingPage.css';
 
 class LandingPage extends React.Component {
     
-    state = {
-         //Array for all the resturants.
-     resturantArray : [
-        {
-          "resturant_name": "Cool Cat Palace",
-          "rating": "4/5"
-        },
-        {
-          "resturant_name": "The Eclipse",
-          "rating": "2/5"
-        },
-        {
-          "resturant_name": "The Paradise Docks",
-          "rating": "1/5"
-        },
-        {
-          "resturant_name": "Little Persia",
-          "rating": "3/5"
-        },
-        {
-          "resturant_name": "The Bitter Fish",
-          "rating": "1/5"
-        }
-      ],
-  
-      //Array with all the user objects.
-        userArray: [
-        {
-          "user_name": "Craig",
-          "rating": "2/5",
-          "review": "This was not so good food"
-        },
-        {
-          "user_name": "Jasper",
-          "rating": "3/5",
-          "review": "It was okey i guess.."
-        },
-        {
-          "user_name": "Maria",
-          "rating": "1/5",
-          "review": "wtf is this.."
-        },
-        {
-          "user_name": "Simon",
-          "rating": "1/5",
-          "review": "nope.."
-        },
-        {
-          "user_name": "PA",
-          "rating": "1/5",
-          "review": "I don't evey eat here.. =)"
-        }
-      ]
-    };
+
+    constructor(props) {
+      super(props);
+
+      this.state = {
+        resturantArray: [],
+        reviewsArray:[],
+        error : null
+
+      }
+  }
+
+
+      componentDidMount() {
+        Promise.all([
+          axios.get('https://restaurantbackend-apis.herokuapp.com/restaurant/getAll'),
+          axios.get('https://restaurantbackend-apis.herokuapp.com/review/latest')
+        ])
+       .then(([res1, res2]) => {
+         this.setState({
+          resturantArray: res1.data,
+          reviewsArray :  res2.data
+        })
+       })
+
+        // axios.get('https://restaurantbackend-apis.herokuapp.com/restaurant/getAll')
+        //   .then(result =>{
+        //     console.log(result.data)
+        //     this.setState({
+        //       resturantArray: result.data,
+        //     })
+        //   }).catch(error => this.setState({
+        //     error,
+        //   }));
+    }
+
 
     render() {
+      const { hits} = this.state;
+        
+      const review = this.state.reviewsArray.map(review =>(
+        <ReviewComponent 
+          reviewer  ={review.reviewer}
+          text = {review.text}
+          resturant_name = {review.restaurantName}
+          rating = {review.rating}
+        />
+      ))
+      
 
-        //Cards
-        const cards = this.state.resturantArray.map(value => (
-            <RestaurantCard
-                resturant_name = {value.resturant_name}
-                rating = {value.rating}
-            />
-        ));
-
-        //Review
-        const review = <ReviewComponent />
-
-
-
+      const cards = this.state.resturantArray.map(value => (
+        <RestaurantCard
+            resturant_name = {value.name}
+            reviewer = {value.reviewer}
+            Reviewrating = {value.rating}
+            address = {value.address}
+            
+        />
+    ));
         //Here we call on the varibiles that contains the components and puts them in a div.
         return (
-          <React.Fragment>
-            <h1 className="LandingPageTitle">Home Page</h1>
-           
-            <div className="wrapper">
+        <React.Fragment>
+        <h1 className="LandingPageTitle">Home Page</h1>
+       
+        <div className="wrapper">
 
-              <div className="reviewDiv">
+        <div className="reviewDiv">
                 {review}
               </div>
 
-              <div className="cardsDiv">
-              {/* <h3>Top 5 Resturants</h3> */}
-                <div className="cardGrid">
-                  {cards}
-                </div>
-              </div>
-
+          <div className="cardsDiv">
+          {/* <h3>Top 5 Resturants</h3> */}
+            <div className="cardGrid">
+              {cards}
             </div>
-          </React.Fragment>
+          </div>
+
+        </div>
+      </React.Fragment>
         )
     }
 }
