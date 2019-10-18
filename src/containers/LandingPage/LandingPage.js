@@ -22,6 +22,8 @@ class LandingPage extends React.Component {
 
     constructor(props) {
       super(props);
+            console.log(this.props)
+
 
       this.state = {
         resturantArray: [],
@@ -56,7 +58,8 @@ class LandingPage extends React.Component {
     }
 
 
-    render() {      
+    render() {     
+      
       const review = this.state.reviewsArray.map(review =>(
         <ReviewComponent 
           reviewer  ={review.reviewer}
@@ -108,11 +111,8 @@ class LandingPage extends React.Component {
       .map(card => (
             <Grid item key={card} xs={12} sm={6} md={4}>
               <Card className={classes.card}>
-                <CardMedia
-                  className={classes.cardMedia}
-                  image="https://source.unsplash.com/random"
-                  title="Image title"
-                />
+               
+                <img src ="https://source.unsplash.com/random" className="img-fluid"></img>
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h5" component="h2">
                   {card.name}
