@@ -42,7 +42,7 @@ class LoginForm extends React.Component {
       sessionStorage.setItem('userID' ,response.data._id)
       sessionStorage.setItem('email' ,response.data.email)
       sessionStorage.setItem('role' ,response.data.role)
-    window.location = '/'
+      window.location = '/'
     }).catch(function (error) {
       console.log(error);
     });

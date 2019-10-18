@@ -1,111 +1,173 @@
 import React from 'react';
-import axios from 'axios';
 
-class AddNewRestuarantComponent extends React.Component {
-    constructor(props) {
+import axios from "axios"
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
+class AddResturantPage extends React.Component {
+    
+
+    constructor(props){
         super(props);
-        this.userid = this.props.userid;
+        this.state={
+            name:"",
+            address:"",
+            category:"",
+            description:""
+        };
 
-        this.state = {
-            user_id: this.userid,
-            name: '',
-            address: '',
-            description: '',
-            category: ''
-        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    onChange = (e) => {
-        e.preventDefault();
-        this.setState({ [e.target.name]: e.target.value });
+    
+      
+    handleChange(event){
+        this.setState({[event.target.name]: event.target.value});
+    }
+    handleOptionChange = changeEvent => {
+        this.setState({
+            role: changeEvent.target.value
+        });
     }
 
-    onSubmit = (e) => {
-        // get our form data out of state
-        const { name, address, description, category, user_id } = this.state;
+    handleSubmit(event){
 
-        axios.post('https://restaurantbackend-apis.herokuapp.com/restaurant/create/', { name, address, description, category, user_id })
-          .then((result) => {
-            this.setState = {
-                name: '',
-                address: '',
-                description: '',
-                category: ''
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+            axios.post('https://restaurantbackend-apis.herokuapp.com/restaurant/create', {
+                name: this.state.name,
+                address: this.state.address,
+                category: this.state.category,
+                description: this.state.description
+            }).then(function(response){
+                console.log(response);
+            }).catch(function(error){
+                console.log(error);
+            });
+        
+        event.preventDefault();
     }
 
-    render() {
-        const { name, address, description, category } = this.state;
+    
+    
+    render(){
 
-        return (
-            <div className="tabDiv">
-            <h2>Register a new restaurant:</h2>
-                <hr></hr>
-                <form className="reviewForm" onSubmit={this.onSubmit}>
-                    <div>
-                        <label>
-                            Restaurant name:<br></br>
-                            <input 
-                                onChange={this.onChange} 
-                                value={name}
-                                id="name" 
-                                type="text" 
-                                name="name" 
-                                placeholder="Japon Sushi" 
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Address:<br></br>
-                            <input 
-                                onChange={this.onChange} 
-                                value={address}
-                                id="address" 
-                                type="text" 
-                                name="address" 
-                                placeholder="Karl Johans gate 2, 0112 Oslo"
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Category:<br></br>
-                            <input 
-                                onChange={this.onChange} 
-                                value={category}
-                                id="category" 
-                                type="text" 
-                                name="category" 
-                                placeholder="Fast food"
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Description:<br></br>
-                            <textarea 
-                                onChange={this.onChange} 
-                                value={description}
-                                id="description" 
-                                rows = "5" 
-                                cols = "50" 
-                                name = "description" 
-                                placeholder="This is a restaurant that is well known for ..."
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <input type="submit" value="Submit"/>
-                    </div>
-                </form>
-            </div>
+
+        const classes =  makeStyles(theme => ({
+        '@global': {
+            body: {
+            backgroundColor: theme.palette.common.white,
+            },
+        },
+        paper: {
+            marginTop: theme.spacing(8),
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+        },
+        avatar: {
+            margin: theme.spacing(1),
+            backgroundColor: theme.palette.secondary.main,
+        },
+        form: {
+            width: '100%', // Fix IE 11 issue.
+            marginTop: theme.spacing(3),
+        },
+        submit: {
+            margin: theme.spacing(3, 0, 2),
+        },
+        }));
+
+
+
+        return(
+
+
+
+  <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+         Add Restaurant
+        </Typography>
+        <form  onSubmit={this.handleSubmit} className={classes.form} noValidate>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField onChange={this.handleChange}
+                required
+                name="name"
+                variant="outlined"
+                required
+                fullWidth
+                label="Name"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField onChange={this.handleChange}
+                required
+                variant="outlined"
+                required
+                fullWidth
+                id="address"
+                label="Address"
+                name="address"
+                autoComplete="email"
+              />
+            </Grid>
+            <Grid item sm={12}>
+              <TextField onChange={this.handleChange}
+                required
+                variant="outlined"
+                required
+                fullWidth
+                id="description"
+                label="Description"
+                name="description"
+                autoComplete="email"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField onChange={this.handleChange}
+                required
+                variant="outlined"
+                required
+                fullWidth
+                name="category"
+                label="Password"
+                type="text"
+                id="category"
+              />
+                </Grid>
+            </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            value="submit"
+            className={classes.submit}
+          >
+            Add
+          </Button>
+
+        </form>
+      </div>
+      <Box mt={5}>
+      </Box>
+    </Container>
         );
     }
 }
-
-export default AddNewRestuarantComponent
+export default AddResturantPage;
