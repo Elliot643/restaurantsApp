@@ -9,6 +9,8 @@ import LoginPage from './containers/LoginPage/LoginPage';
 import SignuPage from './containers/SignupPage/SignupPage';
 import ResturantPage from './containers/ResturantPage/ResturantPage';
 import ResturantsPage from './containers/ResturantsPage/ResturantsPage';
+import UserUpdatePage from './containers/UserUpdatePage/UserUpdatePage';
+
 class App extends Component {
   render() {
       return (
@@ -29,6 +31,9 @@ class App extends Component {
                   </Route>
                   <Route path="/resturants">
                       <ResturantsPage />
+                  </Route>
+                  <Route path="/userupdate">
+                      <UserUpdatePage />
                   </Route>
                   <Route path="/">
                       <LandingPage />

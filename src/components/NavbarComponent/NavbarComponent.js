@@ -26,7 +26,6 @@ const NavbarComponent = (props) => {
                     <Link to="/resturant"> Resturants </Link>
                     <Link to="/user"> User </Link>
                     <Link to="/resturants"> Resturants </Link>
-
                 </ul>
 
                 <form className="form-inline">
