@@ -8,7 +8,6 @@ class LoginPage extends React.Component{
 
         return (
             <React.Fragment>
-                <h4>Login Page</h4>
                 <LoginForm/>
                 <hr />
             </React.Fragment>

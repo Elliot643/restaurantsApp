@@ -10,9 +10,9 @@ class SignupPage extends React.Component{
 
         return (
             <React.Fragment>
-                <h4>Signup Page</h4>
+                <br>
+                </br>
                 <SignupForm/>
-                <hr />
             </React.Fragment>
         )
     }

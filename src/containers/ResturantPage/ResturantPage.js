@@ -13,6 +13,7 @@ class ResturantPage extends React.Component {
     super(props);
 
     this.state = {
+      Api :'https://restaurantbackend-apis.herokuapp.com/restaurant/id/',
       restaurantObj: [],
       id: 2,
       address:  "Klostergatan 6, Växjö",   
@@ -35,7 +36,7 @@ class ResturantPage extends React.Component {
   //Fetching data from the API endpoint.
   componentDidMount() {
     Promise.all([
-      axios.get('https://restaurantbackend-apis.herokuapp.com/restaurant/id/' + this.state.id)
+      axios.get(this.state.Api+ this.state.id)
     ])
       .then((result) => {
         this.setState({

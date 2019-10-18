@@ -1,5 +1,4 @@
 import React from 'react';
-import NavbarComponent from '../../components/NavbarComponent/NavbarComponent';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -53,11 +52,15 @@ class ResturantsPage extends React.Component {
               marginTop: theme.spacing(4),
             },
             cardGrid: {
+              marginTop: theme.spacing(10),
               paddingTop: theme.spacing(8),
               paddingBottom: theme.spacing(8),
             },
             card: {
-              height: '100%',
+              
+
+              height: '10%',
+              marginTop: '10%',
               display: 'flex',
               flexDirection: 'column',
             },
@@ -78,6 +81,8 @@ class ResturantsPage extends React.Component {
           const reviews = this.state.reviewsArray
 
           const cards = this.state.resturantsArray
+
+          
           .map(card => (
             <Grid item key={card} xs={12} sm={6} md={4}>
               <Card className={classes.card}>
@@ -120,12 +125,23 @@ class ResturantsPage extends React.Component {
             </Grid>
           ))
         return (
+   <React.Fragment>
+
+  
+          <Container maxWidth="sm">
+            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+            </Typography>
+          
+ 
+          </Container>
             <Container className={classes.cardGrid} maxWidth="md">
             {/* End hero unit */}
             <Grid container spacing={4}>
               {cards}
             </Grid>
-          </Container>         
+
+          </Container>       
+           </React.Fragment>  
         )
     }
 }
