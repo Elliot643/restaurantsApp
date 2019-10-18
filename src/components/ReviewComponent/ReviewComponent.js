@@ -9,9 +9,23 @@ const ReviewComponent = (props) => {
         
         <div className='reviewContainer'>
             <div className='reviewBody'>
-                <hr />
-                    <h2>Review component body</h2>
-                <hr />
+               
+               {/* Name: {props.name} */}
+               {/* Text: {props.text} */}
+
+                <div className="textAndNameWrapper">
+                    <div className="nameDiv">
+                        <p>{props.reviwer}</p>
+                    </div>
+                    <div className="ratingDiv">
+                        <p>Rating</p>
+                    </div>
+                </div> 
+
+                <div className="textDiv">
+                    <p>{props.text}</p>
+                </div>
+
             </div>
         </div>
              
