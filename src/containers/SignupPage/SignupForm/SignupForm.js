@@ -28,19 +28,26 @@ class SignupForm extends React.Component {
     }
 
     handleSubmit(event){
-        alert('username: ' + this.state.username + ', password:' +
+        if(this.state.username === "" || this.state.password === "" || this.state.email === ""){
+            alert("Please enter values for all fields");
+        }
+        else{
+            alert('username: ' + this.state.username + ', password:' +
                 this.state.password+", email: "+this.state.email+", role: "+this.state.role);
+
+            axios.post('https://restaurantbackend-apis.herokuapp.com/user/create', {
+                username: this.state.username,
+                password: this.state.password,
+                email: this.state.email,
+                role: this.state.role
+            }).then(function(response){
+                console.log(response);
+            }).catch(function(error){
+                console.log(error);
+            });
+        }
         
-        axios.post('https://restaurantbackend-apis.herokuapp.com/user/create', {
-            username: this.state.username,
-            password: this.state.password,
-            email: this.state.email,
-            role: this.state.role
-        }).then(function(response){
-            console.log(response);
-        }).catch(function(error){
-            console.log(error);
-        });
+
         
         event.preventDefault();
     }
