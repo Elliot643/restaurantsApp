@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 import ReviewComponent from '../../components/ReviewComponent/ReviewComponent';
-import NavbarComponent from '../../components/NavbarComponent/NavbarComponent';
 import './LandingPage.css';
 
 
@@ -47,9 +46,7 @@ class LandingPage extends React.Component {
     }
 
 
-    render() {
-      const { hits} = this.state;
-        
+    render() {      
       const review = this.state.reviewsArray.map(review =>(
         <ReviewComponent 
           reviewer  ={review.reviewer}
@@ -72,21 +69,17 @@ class LandingPage extends React.Component {
         //Here we call on the varibiles that contains the components and puts them in a div.
         return (
         <React.Fragment>
-        <h1 className="LandingPageTitle">Home Page</h1>
-       
         <div className="wrapper">
-
-        <div className="reviewDiv">
+              <div className="reviewDiv">
                 {review}
               </div>
 
-          <div className="cardsDiv">
-          {/* <h3>Top 5 Resturants</h3> */}
-            <div className="cardGrid">
-              {cards}
-            </div>
-          </div>
-
+              <div className="cardsDiv">
+              {/*  <h3>Top 5 Resturants</h3> */}
+                <div className="cardGrid">
+                  {cards}
+                </div>
+              </div>
         </div>
       </React.Fragment>
         )
