@@ -2,7 +2,11 @@ import React from 'react';
 import './NavbarComponent.css';
 import {Link} from 'react-router-dom';
 
+
+
 const NavbarComponent = (props) => {
+    
+  
 
     return (
         
@@ -21,6 +25,8 @@ const NavbarComponent = (props) => {
                     <Link to="/signup">Sign up</Link>
                     <Link to="/resturant"> Resturant </Link>
                     <Link to="/user"> User </Link>
+                    <Link to="/resturants"> Resturants </Link>
+
                 </ul>
 
                 <form className="form-inline">

@@ -1,0 +1,122 @@
+/*Desktop Mode*/
+
+h1 {
+  text-align: center;
+  margin-top: 5%;
+  color: #fff;
+  text-shadow: 1px 1px 5px #222;
+}
+
+.resturantBody {
+  background-color: #fff;
+  margin-top: 2%;
+  margin-right: 15%;
+  margin-left: 15%;
+  margin-bottom: 5%;
+  padding: 2%;
+  border-radius: 5px;
+  -moz-box-shadow: 0 0 10px #222;
+  -webkit-box-shadow: 0 0 10px #222;
+  box-shadow: 0 0 10px #222;
+}
+
+.resturantImgDiv {
+  height: auto;
+  width: 380px;
+  /* background: rgb(70, 70, 223);*/
+  float: left;
+}
+
+img {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #222;
+}
+
+p {
+  height: auto;
+  margin-left: 31%;
+  padding: 0px;
+  /* background: rgb(193, 248, 156);*/
+}
+
+.mapDiv {
+  margin-top: 2%;
+  /*background-color: green;*/
+}
+
+/* End of Desktop Mode*/
+
+/*Mobile Potrait mode*/
+
+@media (min-width: 360px) and (max-width: 700px) {
+  .resturantBody {
+    background-color: #fff;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-bottom: 30%;
+    padding: 3%;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 10px #222;
+    -webkit-box-shadow: 0 0 10px #222;
+    box-shadow: 0 0 10px #222;
+  }
+  .resturantImgDiv {
+    float: none;
+    height: auto;
+    width: auto;
+  }
+  img {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #222;
+  }
+  p {
+    margin: 0;
+    width: auto;
+    float: none;
+    padding: 10px;
+  }
+  .mapDiv {
+    margin-top: 0%;
+    margin-left: 0%;
+  }
+}
+
+/* Tablets, Ipads: portrait mode.*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .resturantBody {
+    background-color: #fff;
+    margin-top: 5%;
+    margin-right: 2%;
+    margin-left: 2%;
+    margin-bottom: 30%;
+    padding: 3%;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 10px #222;
+    -webkit-box-shadow: 0 0 10px #222;
+    box-shadow: 0 0 10px #222;
+  }
+  .resturantImgDiv {
+    float: none;
+    height: auto;
+    width: auto;
+  }
+  img {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #222;
+  }
+  p {
+    margin: 0;
+    width: auto;
+    float: none;
+    padding: 10px;
+  }
+  .mapDiv {
+    margin-top: 0%;
+    margin-left: 0%;
+  }
+}
