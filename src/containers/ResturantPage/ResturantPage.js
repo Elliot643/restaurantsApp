@@ -14,18 +14,12 @@ class ResturantPage extends React.Component {
 
     this.state = {
       Api :'https://restaurantbackend-apis.herokuapp.com/restaurant/id/',
-      restaurantObj: [],
-      id: 2,
-      address:  "Klostergatan 6, Växjö",   
-      error : null
+      restaurantObj: ""
     }
 
-    this.handleClick = this.handleClick.bind(this);
 }
 
-  handleClick(button) {
-    console.log(this.state.id);
-  }
+  
 
 
 
@@ -49,22 +43,21 @@ class ResturantPage extends React.Component {
 
   render() {
     
-    const handleBtnClick = () => this.handleClick();
-
-    const cards = this.state.resturantArray.map(value => (
-      <RestaurantCard
-          resturant_name = {value.name}
-          reviewer = {value.reviewer}
-          Reviewrating = {value.rating}
-          address = {value.address}
-          />
-      ));
+    Promise.all([
+      axios.get(this.state.Api+ this.state.id)
+    ])
+      .then((result) => {
+        this.setState({
+          restaurantObj: result[0].data
+        })
+        console.log(result[0].data);
+      })
           
 
         return (
           <React.Fragment>
 
-            <button onClick={handleBtnClick}>Get id from click</button>
+            
          
 
             <h1>{this.state.restaurantObj.name}</h1>
