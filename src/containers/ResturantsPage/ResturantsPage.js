@@ -57,8 +57,6 @@ class ResturantsPage extends React.Component {
               paddingBottom: theme.spacing(8),
             },
             card: {
-              
-
               height: '10%',
               marginTop: '10%',
               display: 'flex',
@@ -80,9 +78,7 @@ class ResturantsPage extends React.Component {
 
           const reviews = this.state.reviewsArray
 
-          const cards = this.state.resturantsArray
-
-          
+          const cards = this.state.resturantsArray 
           .map(card => (
             <Grid item key={card} xs={12} sm={6} md={4}>
               <Card className={classes.card}>
