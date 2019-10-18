@@ -2,9 +2,9 @@ import React from 'react';
 import NavbarComponent from '../../components/NavbarComponent/NavbarComponent';
 import LoginForm from "../LoginPage/LoginForm/LoginForm";
 
+class LoginPage extends React.Component{
 
-class LoginPage extends React.Component {
-    render() {
+        render(){
 
         return (
             <React.Fragment>

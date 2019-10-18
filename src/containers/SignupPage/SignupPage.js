@@ -4,9 +4,9 @@ import NavbarComponent from '../../components/NavbarComponent/NavbarComponent';
 import SignupForm from './SignupForm/SignupForm';
 
 
+class SignupPage extends React.Component{
 
-class SignupPage extends React.Component {
-    render() {
+        render(){
 
         return (
             <React.Fragment>
