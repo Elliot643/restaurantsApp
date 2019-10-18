@@ -115,6 +115,7 @@ class SignupForm extends React.Component {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField onChange={this.handleChange}
+                required
                 name="username"
                 variant="outlined"
                 required
@@ -126,6 +127,7 @@ class SignupForm extends React.Component {
             </Grid>
             <Grid item xs={12}>
               <TextField onChange={this.handleChange}
+                required
                 variant="outlined"
                 required
                 fullWidth
@@ -137,6 +139,7 @@ class SignupForm extends React.Component {
             </Grid>
             <Grid item xs={12}>
               <TextField onChange={this.handleChange}
+                required
                 variant="outlined"
                 required
                 fullWidth

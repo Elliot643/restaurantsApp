@@ -26,6 +26,7 @@ const NavbarComponent = (props) => {
                     <Link to="/resturant"> Resturants </Link>
                     <Link to="/user"> User </Link>
                     <Link to="/resturants"> Resturants </Link>
+                    <Link to="/addRestaurant"> Add Resturants </Link>
 
                 </ul>
 
