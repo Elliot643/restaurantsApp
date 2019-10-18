@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -10,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
 import MapComponent from '../../components/MapComponent/MapComponent';
+import { Link } from 'react-router-dom';
 
 
 class ResturantsPage extends React.Component {
@@ -113,15 +113,13 @@ class ResturantsPage extends React.Component {
                 </div>
                 </CardContent>
                 <CardActions>
-                  <Button to="/restaurant/:id" size="small" color="primary" value={card.id}>
-                    View
-                  </Button>
+                <Link to= {{ pathname: '/resturant/' + card.id, state: { foo: "bar"} }} className="btn btn-primary">View</Link>
                 </CardActions>
               </Card>
             </Grid>
           ))
         return (
-   <React.Fragment>
+          <React.Fragment>
 
   
           <Container maxWidth="sm">
