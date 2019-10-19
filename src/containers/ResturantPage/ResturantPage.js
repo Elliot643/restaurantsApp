@@ -1,9 +1,7 @@
 import React from 'react';
 import MapComponent from '../../components/MapComponent/MapComponent';
-import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
 import axios from 'axios';
 import './ResturantPage.css';
-import { valueToNode } from '@babel/types';
 
 
 class ResturantPage extends React.Component {
@@ -12,31 +10,10 @@ class ResturantPage extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      Api :'https://restaurantbackend-apis.herokuapp.com/restaurant/id/',
-      restaurantObj: [],
-      id: 2,
-      address:  "Klostergatan 6, Växjö",   
-      error : null
-    }
-
-    this.handleClick = this.handleClick.bind(this);
-}
-
-  handleClick(button) {
-    console.log(this.state.id);
-  }
-
-
-
-
-
-
-
-  //Fetching data from the API endpoint.
-  componentDidMount() {
+    const {id} = this.props.match.params;
+    
     Promise.all([
-      axios.get(this.state.Api+ this.state.id)
+      axios.get("https://restaurantbackend-apis.herokuapp.com/restaurant/id/"+id)
     ])
       .then((result) => {
         this.setState({
@@ -44,29 +21,19 @@ class ResturantPage extends React.Component {
         })
         console.log(result[0].data);
       })
-  }
+
+    this.state = {
+      restaurantObj: ""
+    }
+
+}
 
 
   render() {
-    
-    const handleBtnClick = () => this.handleClick();
-
-    const cards = this.state.resturantArray.map(value => (
-      <RestaurantCard
-          resturant_name = {value.name}
-          reviewer = {value.reviewer}
-          Reviewrating = {value.rating}
-          address = {value.address}
-          />
-      ));
           
 
         return (
           <React.Fragment>
-
-            <button onClick={handleBtnClick}>Get id from click</button>
-         
-
             <h1>{this.state.restaurantObj.name}</h1>
 
             <div className="resturantBody">
@@ -74,7 +41,8 @@ class ResturantPage extends React.Component {
               <div className="resturantImgDiv">
                 <img src= {require('../../images/background.jpg')} className='img-fluid' />
               </div>
-              <p>{this.state.restaurantObj.description}</p><br></br>
+              <p>Description: {this.state.restaurantObj.description}</p>
+              <p>Tags: {this.state.restaurantObj.tags}</p>
               <hr/>
               <div className="mapDiv">
                 <MapComponent address={this.state.restaurantObj.address} />

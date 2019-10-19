@@ -5,30 +5,23 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 
-class SignupForm extends React.Component {
+class AddResturantPage extends React.Component {
 
 
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: "",
-      email: "",
-      role: ""
+      name: "",
+      address: "",
+      category: "",
+      description: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -47,26 +40,17 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(event) {
-    if (this.state.username === "" || this.state.password === "" || this.state.email === "") {
-      alert("Please enter values for all fields");
-    }
-    else {
-      alert('username: ' + this.state.username + ', password:' +
-        this.state.password + ", email: " + this.state.email + ", role: " + this.state.role);
 
-      axios.post('https://restaurantbackend-apis.herokuapp.com/user/create', {
-        username: this.state.username,
-        password: this.state.password,
-        email: this.state.email,
-        role: this.state.role
-      }).then(function (response) {
-        console.log(response);
-      }).catch(function (error) {
-        console.log(error);
-      });
-    }
-
-
+    axios.post('https://restaurantbackend-apis.herokuapp.com/restaurant/create', {
+      name: this.state.name,
+      address: this.state.address,
+      category: this.state.category,
+      description: this.state.description
+    }).then(function (response) {
+      console.log(response);
+    }).catch(function (error) {
+      console.log(error);
+    });
 
     event.preventDefault();
   }
@@ -74,8 +58,7 @@ class SignupForm extends React.Component {
 
 
   render() {
-    const options = [1, 2]
-    console.log(sessionStorage.role)
+
 
     const classes = makeStyles(theme => ({
       '@global': {
@@ -100,9 +83,6 @@ class SignupForm extends React.Component {
       submit: {
         margin: theme.spacing(3, 0, 2),
       },
-      formControl: {
-        margin: theme.spacing(3),
-      },
     }));
 
 
@@ -114,23 +94,20 @@ class SignupForm extends React.Component {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
+
           <Typography component="h1" variant="h5">
-            Sign up
+            Add Restaurant
         </Typography>
           <form onSubmit={this.handleSubmit} className={classes.form} noValidate>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField onChange={this.handleChange}
                   required
-                  name="username"
+                  name="name"
                   variant="outlined"
                   required
                   fullWidth
-                  id="firstName"
-                  label="User name"
+                  label="Name"
                   autoFocus
                 />
               </Grid>
@@ -140,9 +117,21 @@ class SignupForm extends React.Component {
                   variant="outlined"
                   required
                   fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
+                  id="address"
+                  label="Address"
+                  name="address"
+                  autoComplete="email"
+                />
+              </Grid>
+              <Grid item sm={12}>
+                <TextField onChange={this.handleChange}
+                  required
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="description"
+                  label="Description"
+                  name="description"
                   autoComplete="email"
                 />
               </Grid>
@@ -152,27 +141,11 @@ class SignupForm extends React.Component {
                   variant="outlined"
                   required
                   fullWidth
-                  name="password"
+                  name="category"
                   label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
+                  type="text"
+                  id="category"
                 />
-                <Grid></Grid>
-
-                <div>
-                  <label>Role:</label>
-                  <div>
-                    <label>Reviewer</label>
-                    <input type="radio" value="1" name="reviewer"
-                      onChange={this.handleOptionChange}
-                      checked={this.state.role === "1"} />
-                    <label>Owner</label>
-                    <input type="radio" value="2" name="owner"
-                      onChange={this.handleOptionChange}
-                      checked={this.state.role === "2"} />
-                  </div>
-                </div>
               </Grid>
             </Grid>
             <Button
@@ -183,21 +156,15 @@ class SignupForm extends React.Component {
               value="submit"
               className={classes.submit}
             >
-              Sign Up
+              Add
           </Button>
-            <Grid container justify="flex-end">
-              <Grid item>
-                <Link href="/login" variant="body2">
-                  Already have an account? Sign in
-              </Link>
-              </Grid>
-            </Grid>
+
           </form>
         </div>
         <Box mt={5}>
         </Box>
-      </Container >
+      </Container>
     );
   }
 }
-export default SignupForm;
+export default AddResturantPage;
