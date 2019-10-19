@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -10,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
 import MapComponent from '../../components/MapComponent/MapComponent';
+import { Link } from 'react-router-dom';
 
 
 class ResturantsPage extends React.Component {
@@ -110,35 +110,33 @@ class ResturantsPage extends React.Component {
               </Typography>
               <div className="mapDiv">
                 <MapComponent address="Klostergatan 6, Växjö" />
-              </div>
-            </CardContent>
-            <CardActions>
-              <Button to="/restaurant/:id" size="small" color="primary" value={card.id}>
-                View
-                  </Button>
-            </CardActions>
-          </Card>
-        </Grid>
-      ))
-    return (
-      <React.Fragment>
+                </div>
+                </CardContent>
+                <CardActions>
+                <Link to= {{ pathname: '/resturant/' + card.id, state: { foo: "bar"} }} className="btn btn-primary">View</Link>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))
+        return (
+          <React.Fragment>
 
+  
+          <Container maxWidth="sm">
+            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+            </Typography>
+          
+ 
+          </Container>
+            <Container className={classes.cardGrid} maxWidth="md">
+            {/* End hero unit */}
+            <Grid container spacing={4}>
+              {cards}
+            </Grid>
 
-        <Container maxWidth="sm">
-          <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          </Typography>
-
-
-        </Container>
-        <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards}
-          </Grid>
-
-        </Container>
-      </React.Fragment>
-    )
-  }
+          </Container>       
+           </React.Fragment>  
+        )
+    }
 }
 export default ResturantsPage;
