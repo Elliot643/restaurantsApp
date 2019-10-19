@@ -26,9 +26,9 @@ class App extends Component {
                   <Route path="/signup">
                       <SignuPage />
                   </Route>
-                  <Route path="/resturant">
-                      <ResturantPage />
-                  </Route>
+                  <Route path={"/resturant/:id"} 
+                        render={(props) =><ResturantPage {...props}/>}
+                    />
                   <Route path="/resturants">
                       <ResturantsPage />
                   </Route>
