@@ -12,6 +12,7 @@ import MapComponent from '../../components/MapComponent/MapComponent';
 import { Link } from 'react-router-dom';
 
 
+
 class ResturantsPage extends React.Component {
 
 
@@ -109,11 +110,11 @@ class ResturantsPage extends React.Component {
                     )}
                   </Typography>
                   <div className="mapDiv">
-                <MapComponent address="Klostergatan 6, Växjö" />
+                <MapComponent address={card.address} />
                 </div>
                 </CardContent>
                 <CardActions>
-                <Link to= {{ pathname: '/resturant/' + card.id, state: { foo: "bar"} }} className="btn btn-primary">View</Link>
+                <Link to= {{ pathname: '/resturant/' + card.id }} className="btn btn-primary">View</Link>
                 </CardActions>
               </Card>
             </Grid>

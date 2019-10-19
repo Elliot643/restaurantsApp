@@ -10,6 +10,7 @@ import SignuPage from './containers/SignupPage/SignupPage';
 import ResturantPage from './containers/ResturantPage/ResturantPage';
 import ResturantsPage from './containers/ResturantsPage/ResturantsPage';
 import AddResturantsPage from './containers/AddResturantsPage';
+import SearchPage from './containers/SearchPage/SearchPage';
 
 class App extends Component {
   render() {
@@ -35,9 +36,14 @@ class App extends Component {
                   <Route path="/addRestaurant">
                       <AddResturantsPage />
                   </Route>
+                  <Route path={"/search/:keyword"} 
+                        render={(props) =><SearchPage {...props}/>}
+                    />
                   <Route path="/">
                       <LandingPage />
                   </Route>
+                  
+                  
                 </Switch>
           </Router>
       );

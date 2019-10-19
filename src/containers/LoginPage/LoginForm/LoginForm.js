@@ -89,7 +89,7 @@ class LoginForm extends React.Component {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Login
         </Typography>
           <form className={classes.form} noValidate onSubmit={this.handleSubmit}>
             <TextField onChange={this.handleChange}
@@ -129,14 +129,14 @@ class LoginForm extends React.Component {
             >
               Sign In
           </Button>
-            <input
+            {/*<input
               value="Submit"
               type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
-            />
+            />*/}
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
