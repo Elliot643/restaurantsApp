@@ -27,6 +27,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
+
 export default function NavbarComponent() {
     const classes = useStyles();
     var loginButton;
@@ -40,6 +41,7 @@ export default function NavbarComponent() {
             <Button href="/login" color="primary" variant="outlined" className={classes.link}>
                 Log out
         </Button>
+
         </nav>
     } else {
         loginButton = <nav>
