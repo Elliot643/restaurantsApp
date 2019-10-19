@@ -38,10 +38,11 @@ class LoginForm extends React.Component {
       username: this.state.username,
       password: this.state.password
     }).then(function (response) {
-      sessionStorage.setItem('username' , response.data.username)
-      sessionStorage.setItem('userID' ,response.data._id)
-      sessionStorage.setItem('email' ,response.data.email)
-      sessionStorage.setItem('role' ,response.data.role)
+      sessionStorage.setItem('username', response.data.username)
+      sessionStorage.setItem('userID', response.data._id)
+      sessionStorage.setItem('email', response.data.email)
+      sessionStorage.setItem('role', response.data.role)
+      sessionStorage.setItem('loggedIn', true)
       window.location = '/'
     }).catch(function (error) {
       console.log(error);

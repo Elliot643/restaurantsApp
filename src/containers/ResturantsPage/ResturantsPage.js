@@ -20,125 +20,125 @@ class ResturantsPage extends React.Component {
 
     this.state = {
       resturantsArray: [],
-      reviewsArray:[],
-      error : null
+      reviewsArray: [],
+      error: null
     }
-}
-  
+  }
+
   componentDidMount() {
     Promise.all([
       axios.get('https://restaurantbackend-apis.herokuapp.com/restaurant/getAll'),
       axios.get('https://restaurantbackend-apis.herokuapp.com/review/getAll'),
 
     ])
-   .then(([res1, res2]) => {
-     this.setState({
-      resturantsArray: res1.data,
-      reviewsArray:res2.data
-    })
-   })
-}
-    render() {
+      .then(([res1, res2]) => {
+        this.setState({
+          resturantsArray: res1.data,
+          reviewsArray: res2.data
+        })
+      })
+  }
+  render() {
 
-        const classes = makeStyles(theme => ({
-            icon: {
-              marginRight: theme.spacing(2),
-            },
-            heroContent: {
-              backgroundColor: theme.palette.background.paper,
-              padding: theme.spacing(8, 0, 6),
-            },
-            heroButtons: {
-              marginTop: theme.spacing(4),
-            },
-            cardGrid: {
-              marginTop: theme.spacing(10),
-              paddingTop: theme.spacing(8),
-              paddingBottom: theme.spacing(8),
-            },
-            card: {
-              height: '10%',
-              marginTop: '10%',
-              display: 'flex',
-              flexDirection: 'column',
-            },
-            cardMedia: {
-              paddingTop: '56.25%', // 16:9
-            },
-            cardContent: {
-              flexGrow: 1,
-            },
-            footer: {
-              backgroundColor: theme.palette.background.paper,
-              padding: theme.spacing(6),
-            },
-          }));
-          
-         
+    const classes = makeStyles(theme => ({
+      icon: {
+        marginRight: theme.spacing(2),
+      },
+      heroContent: {
+        backgroundColor: theme.palette.background.paper,
+        padding: theme.spacing(8, 0, 6),
+      },
+      heroButtons: {
+        marginTop: theme.spacing(4),
+      },
+      cardGrid: {
+        marginTop: theme.spacing(10),
+        paddingTop: theme.spacing(8),
+        paddingBottom: theme.spacing(8),
+      },
+      card: {
+        height: '10%',
+        marginTop: '10%',
+        display: 'flex',
+        flexDirection: 'column',
+      },
+      cardMedia: {
+        paddingTop: '56.25%', // 16:9
+      },
+      cardContent: {
+        flexGrow: 1,
+      },
+      footer: {
+        backgroundColor: theme.palette.background.paper,
+        padding: theme.spacing(6),
+      },
+    }));
 
-          const reviews = this.state.reviewsArray
 
-          const cards = this.state.resturantsArray 
-          .map(card => (
-            <Grid item key={card} xs={12} sm={6} md={4}>
-              <Card className={classes.card}>
-                <CardMedia
-                  className={classes.cardMedia}
-                  image="https://source.unsplash.com/random"
-                  title="Image title"
-                />
-                <CardContent className={classes.cardContent}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                  {card.name}
-                  </Typography>
-                  <Typography>
-                    {card.description}
-                  </Typography>
-                  <Typography>
-                    Address :{card.address}
-                  </Typography>
-                  <Typography>
 
-                 
-                    {reviews.map(rev =>(
-                 <div>
-                  <b>{rev.restaurantID === card.id ? rev.text : ""}</b> 
-               </div>
-                    )
-                  
-                    )}
-                  </Typography>
-                  <div className="mapDiv">
+    const reviews = this.state.reviewsArray
+
+    const cards = this.state.resturantsArray
+      .map(card => (
+        <Grid item key={card} xs={12} sm={6} md={4}>
+          <Card className={classes.card}>
+            <CardMedia
+              className={classes.cardMedia}
+              image="https://source.unsplash.com/random"
+              title="Image title"
+            />
+            <CardContent className={classes.cardContent}>
+              <Typography gutterBottom variant="h5" component="h2">
+                {card.name}
+              </Typography>
+              <Typography>
+                {card.description}
+              </Typography>
+              <Typography>
+                Address :{card.address}
+              </Typography>
+              <Typography>
+
+
+                {reviews.map(rev => (
+                  <div>
+                    <b>{rev.restaurantID === card.id ? rev.text : ""}</b>
+                  </div>
+                )
+
+                )}
+              </Typography>
+              <div className="mapDiv">
                 <MapComponent address="Klostergatan 6, Växjö" />
-                </div>
-                </CardContent>
-                <CardActions>
-                  <Button to="/restaurant/:id" size="small" color="primary" value={card.id}>
-                    View
+              </div>
+            </CardContent>
+            <CardActions>
+              <Button to="/restaurant/:id" size="small" color="primary" value={card.id}>
+                View
                   </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))
-        return (
-   <React.Fragment>
+            </CardActions>
+          </Card>
+        </Grid>
+      ))
+    return (
+      <React.Fragment>
 
-  
-          <Container maxWidth="sm">
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-            </Typography>
-          
- 
-          </Container>
-            <Container className={classes.cardGrid} maxWidth="md">
-            {/* End hero unit */}
-            <Grid container spacing={4}>
-              {cards}
-            </Grid>
 
-          </Container>       
-           </React.Fragment>  
-        )
-    }
+        <Container maxWidth="sm">
+          <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+          </Typography>
+
+
+        </Container>
+        <Container className={classes.cardGrid} maxWidth="md">
+          {/* End hero unit */}
+          <Grid container spacing={4}>
+            {cards}
+          </Grid>
+
+        </Container>
+      </React.Fragment>
+    )
+  }
 }
 export default ResturantsPage;
