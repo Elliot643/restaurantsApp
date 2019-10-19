@@ -38,7 +38,7 @@ class App extends Component {
                   </Route>
                   <Route path="/userupdate">
                       <UserUpdatePage />
-
+                  </Route>
                   <Route path="/addRestaurant">
                       <AddResturantsPage />
                   </Route>
