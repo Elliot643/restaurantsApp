@@ -97,7 +97,6 @@ class LoginForm extends React.Component {
               required
               variant="outlined"
               margin="normal"
-              required
               fullWidth
               id="email"
               label="User Name"
@@ -108,7 +107,6 @@ class LoginForm extends React.Component {
               required
               variant="outlined"
               margin="normal"
-              required
               fullWidth
               name="password"
               label="Password"

@@ -82,7 +82,7 @@ class ResturantsPage extends React.Component {
 
           const cards = this.state.resturantsArray 
           .map(card => (
-            <Grid item key={card} xs={12} sm={6} md={4}>
+            <Grid item key={card} sm={12} >
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.cardMedia}

@@ -1,6 +1,5 @@
 import React from 'react';
 import './ReviewComponent.css';
-import MapComponent from "../MapComponent/MapComponent"
 
 
 const ReviewComponent = (props) => {

@@ -2,13 +2,8 @@ import React from 'react';
 import './NavbarComponent.css';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
+import { Navbar, Nav } from 'react-bootstrap'
 class NavbarComponent extends React.Component {
 
     constructor(props) {
@@ -32,9 +27,6 @@ class NavbarComponent extends React.Component {
 
     render() {
 
-        const classes = makeStyles(theme => ({
-
-        }));
 
         var navMenu;
         if (sessionStorage.loggedIn) {

@@ -1,17 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import ReviewComponent from '../../components/ReviewComponent/ReviewComponent';
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
+import Link from '@material-ui/core/Link'
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import MapComponent from '../../components/MapComponent/MapComponent';
 import './LandingPage.css';
 
 
@@ -109,7 +106,7 @@ class LandingPage extends React.Component {
         <Grid item key={card} xs={12} sm={6} md={4}>
           <Card className={classes.card}>
 
-            <img src="https://source.unsplash.com/random" className="img-fluid"></img>
+            <img src="https://source.unsplash.com/random" alt="restaurant"className="img-fluid"></img>
             <CardContent className={classes.cardContent}>
               <Typography gutterBottom variant="h5" component="h2">
                 {card.name}
@@ -120,10 +117,8 @@ class LandingPage extends React.Component {
               Rating : {}
             </CardContent>
             <CardActions>
-              <Button  to= {{ pathname: '/resturant/' + card.id }}size="small" color="primary" value={card.id}>
-                View
-                </Button>
-            </CardActions>
+                        <Link to= {{ pathname: '/resturant/' + card.id }} className="btn btn-primary">View</Link>
+                </CardActions>
           </Card>
         </Grid>
       ))

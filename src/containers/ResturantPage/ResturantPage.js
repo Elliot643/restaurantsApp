@@ -53,7 +53,7 @@ class ResturantPage extends React.Component {
             <div className="resturantBody">
             <hr/>
               <div className="resturantImgDiv">
-                <img src= {require('../../images/background.jpg')} className='img-fluid' />
+                <img src= {require('../../images/background.jpg')} className='img-fluid' alt =' restaurant' />
               </div>
               <p>Description: {this.state.restaurantObj.description}</p>
               <p>Tags: {this.state.restaurantObj.tags}</p>

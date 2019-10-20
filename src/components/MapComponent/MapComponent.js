@@ -11,7 +11,7 @@ const MapComponent = (props) => {
                 <iframe id="gmap_canvas" title="myFrame"
                     src={"https://maps.google.com/maps?q="+address+"=&z=15&ie=UTF8&iwloc=&output=embed"} frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                 </iframe>
-                <a href="https://usave.co.uk" id="anchorId"></a>
+                <a href="https://usave.co.uk" content ="s" id="anchorId"></a>
             </div>
         </div>
     )
