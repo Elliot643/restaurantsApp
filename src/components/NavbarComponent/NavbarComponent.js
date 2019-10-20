@@ -1,4 +1,7 @@
 import React from 'react';
+import './NavbarComponent.css';
+import {Link} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -27,8 +30,30 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
+class NavbarComponent extends React.Component{
 
-export default function NavbarComponent() {
+    constructor(props){
+        super(props);
+        this.state={
+            value: "",
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event){
+        this.setState({value: event.target.value});
+    }
+    handleSubmit(event){
+        //alert("Search: " + this.state.value);
+        let history = useHistory();
+        history.push("/search/"+this.state.value)
+        event.preventDefault();  
+    }
+  
+    render(){
+      
     const classes = useStyles();
     var loginButton;
     if (sessionStorage.loggedIn) {
@@ -53,8 +78,10 @@ export default function NavbarComponent() {
         </Button>
         </nav>
     }
-    return (
-        <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
+        return (
+            
+            
+             <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
             <Toolbar className={classes.toolbar}>
                 <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
                     Restaurants World
@@ -62,6 +89,20 @@ export default function NavbarComponent() {
                 {loginButton}
 
             </Toolbar>
-        </AppBar>
-    );
+            </AppBar>
+
+                    <form className="form-inline" onSubmit={this.handleSubmit}>
+                        <input className="form-control" value={this.state.value} onChange={this.handleChange} type="search" placeholder="Search" aria-label="Search" id="searchBar" />
+                        {/*<button id="submitBtn" href={'/search/' + this.state.value} type="submit">Search </button>*/}
+                        <Link to={{ pathname: '/search/' + this.state.value }} id="submitBtn">Search</Link>
+                    </form>
+
+                </div>
+            </nav>
+                
+        )
+    }
 }
+
+export default NavbarComponent;
+
