@@ -50,7 +50,7 @@ class AddResturantPage extends React.Component {
       user_id : sessionStorage.userID
 
     }).then(function (response) {
-      console.log(response);
+      window.location = '/'
     }).catch(function (error) {
       console.log(error);
     });

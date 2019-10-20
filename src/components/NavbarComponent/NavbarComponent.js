@@ -8,8 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-
-
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 class NavbarComponent extends React.Component {
 
     constructor(props) {
@@ -32,70 +31,73 @@ class NavbarComponent extends React.Component {
     }
 
     render() {
-        
+
         const classes = makeStyles(theme => ({
-            appBar: {
-                borderBottom: `1px solid ${theme.palette.divider}`,
-            },
-            toolbar: {
-                flexWrap: 'wrap',
-                background: '#363636',
-                flexGrow: 1,
-                border: 0,
-                borderRadius: 3,
-            },
-            toolbarTitle: {
-                flexGrow: 1,
-                color: "white"
-            },
-            link: {
-                margin: theme.spacing(1, 1.5),
-                color: "white "
-            },
-            Link: {
-                margin: theme.spacing(1, 1.5),
-                color: "white "
-            },
+
         }));
 
         var navMenu;
         if (sessionStorage.loggedIn) {
             navMenu = <nav>
-                <Link className={classes.link} to="/">Home</Link>
-                <Link className={classes.link} to="/resturant"> Resturants </Link>
-                <Link className={classes.link} to="/user"> User </Link>
-                <Link className={classes.link} to="/resturants"> Resturants </Link>
-                <Link className={classes.link} to="/addRestaurant"> Add Resturants </Link>
-                <Button href="/login" color="primary" variant="outlined" className={classes.link}>
-                    Log out
-        </Button>
+
+                <Nav className="mr-auto">
+                    <Nav.Link href="/user">User</Nav.Link>
+                    <Nav.Link href="/resturants">Resturants</Nav.Link>
+                    <Nav.Link href="/addRestaurant"> Add Resturants</Nav.Link>
+                    <Nav.Link href="/login">Log Out</Nav.Link>
+
+                </Nav>
+                <Nav>
+                </Nav>
+
+
 
             </nav>
         } else {
             navMenu = <nav>
-                <Link className={classes.link} to="/">Home</Link>
-                <Link className={classes.link} to="/signup">Sign up</Link>
-                <Link className={classes.link} to="/resturants"> Resturants </Link>
-                <Button href="/login" color="primary" variant="outlined" className={classes.link}>
+                <Nav className="mr-auto">
+                    <Nav.Link href="/signup">Sign up</Nav.Link>
+                    <Nav.Link href="/resturants">Resturants</Nav.Link>
+                    <Nav.Link href="/login">Log in</Nav.Link>
+
+                </Nav>
+                <Nav>
+                </Nav>
+               
+                {/* <Button href="/login" color="primary" variant="outlined" className={classes.link}>
                     Log In
-        </Button>
+        </Button> */}
             </nav>
         }
         return (
-            <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
-                <Toolbar className={classes.toolbar}>
-                    <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-                        Restaurants World
-                </Typography>
-                    {navMenu}
+            <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar.Brand href="/">Home</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                {navMenu}
+                <form className="form-inline" onSubmit={this.handleSubmit}>
+                    <input className="form-control" value={this.state.value} onChange={this.handleChange} type="search" placeholder="Search" aria-label="Search" id="searchBar" />
+                    {/*<button id="submitBtn" href={'/search/' + this.state.value} type="submit">Search </button>*/}
+                    <Link to={{ pathname: '/search/' + this.state.value }} id="submitBtn">Search</Link>
+                </form>
 
-                    <form className="form-inline" onSubmit={this.handleSubmit}>
-                        <input className="form-control" value={this.state.value} onChange={this.handleChange} type="search" placeholder="Search" aria-label="Search" id="searchBar" />
-                        {/*<button id="submitBtn" href={'/search/' + this.state.value} type="submit">Search </button>*/}
-                        <Link to={{ pathname: '/search/' + this.state.value }} id="submitBtn">Search</Link>
-                    </form>
-                </Toolbar>
-            </AppBar>
+                </Navbar.Collapse>
+            </Navbar>
+            // <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="theNavbar">
+            //     <a class="navbar-brand" href="#"></a>
+            //     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            //         <span class="navbar-toggler-icon"></span>
+            //     </button>
+
+            //     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            //         {navMenu}
+            //         <form className="form-inline" onSubmit={this.handleSubmit}>
+            //             <input className="form-control" value={this.state.value} onChange={this.handleChange} type="search" placeholder="Search" aria-label="Search" id="searchBar" />
+            //             {/*<button id="submitBtn" href={'/search/' + this.state.value} type="submit">Search </button>*/}
+            //             <Link to={{ pathname: '/search/' + this.state.value }} id="submitBtn">Search</Link>
+            //         </form>
+            //     </div>
+            // </nav>
 
         )
     }

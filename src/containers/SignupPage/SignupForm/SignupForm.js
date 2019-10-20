@@ -76,47 +76,17 @@ class SignupForm extends React.Component {
   render() {
     const options = [1, 2]
     console.log(sessionStorage.role)
-
     const classes = makeStyles(theme => ({
-      '@global': {
-        body: {
-          backgroundColor: theme.palette.common.white,
-        },
-      },
-      paper: {
-        marginTop: theme.spacing(8),
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      },
-      avatar: {
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
-      },
-      form: {
-        width: '100%', // Fix IE 11 issue.
-        marginTop: theme.spacing(3),
-      },
-      submit: {
-        margin: theme.spacing(3, 0, 2),
-      },
-      formControl: {
-        margin: theme.spacing(3),
-      },
     }));
 
 
 
     return (
 
-
-
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
+
           <Typography component="h1" variant="h5">
             Sign up
         </Typography>

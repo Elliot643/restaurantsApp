@@ -45,15 +45,6 @@ class LandingPage extends React.Component {
         })
       })
 
-    // axios.get('https://restaurantbackend-apis.herokuapp.com/restaurant/getAll')
-    //   .then(result =>{
-    //     console.log(result.data)
-    //     this.setState({
-    //       resturantArray: result.data,
-    //     })
-    //   }).catch(error => this.setState({
-    //     error,
-    //   }));
   }
 
 
@@ -111,10 +102,10 @@ class LandingPage extends React.Component {
         padding: theme.spacing(6),
       },
     }));
-
+    
 
     const cards = this.state.resturantArray
-      .map(card => (
+      .map(card =>(
         <Grid item key={card} xs={12} sm={6} md={4}>
           <Card className={classes.card}>
 
@@ -127,12 +118,11 @@ class LandingPage extends React.Component {
                 Address :{card.address}
               </Typography>
               Rating : {}
-
             </CardContent>
             <CardActions>
-              <Button  to={{ pathname: '/restaurant/' + card.id}} size="small" color="primary" value={card.id}>
+              <Button  to= {{ pathname: '/resturant/' + card.id }}size="small" color="primary" value={card.id}>
                 View
-                  </Button>
+                </Button>
             </CardActions>
           </Card>
         </Grid>
