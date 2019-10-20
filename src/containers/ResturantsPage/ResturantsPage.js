@@ -21,17 +21,18 @@ class ResturantsPage extends React.Component {
 
     this.state = {
       resturantsArray: [],
-      reviewsArray:[],
-      error : null
+      reviewsArray: [],
+      error: null
     }
-}
-  
+  }
+
   componentDidMount() {
     Promise.all([
       axios.get('https://restaurantbackend-apis.herokuapp.com/restaurant/getAll'),
       axios.get('https://restaurantbackend-apis.herokuapp.com/review/getAll'),
 
     ])
+<
    .then(([res1, res2]) => {
      this.setState({
       resturantsArray: res1.data,
@@ -111,6 +112,8 @@ class ResturantsPage extends React.Component {
                   </Typography>
                   <div className="mapDiv">
                 <MapComponent address={card.address} />
+
+    
                 </div>
                 </CardContent>
                 <CardActions>
