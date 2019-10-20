@@ -106,7 +106,6 @@ class AddResturantPage extends React.Component {
                   required
                   name="name"
                   variant="outlined"
-                  required
                   fullWidth
                   label="Name"
                   autoFocus
@@ -116,7 +115,6 @@ class AddResturantPage extends React.Component {
                 <TextField onChange={this.handleChange}
                   required
                   variant="outlined"
-                  required
                   fullWidth
                   id="address"
                   label="Address"
@@ -128,7 +126,6 @@ class AddResturantPage extends React.Component {
                 <TextField onChange={this.handleChange}
                   required
                   variant="outlined"
-                  required
                   fullWidth
                   id="description"
                   label="Description"
@@ -140,7 +137,6 @@ class AddResturantPage extends React.Component {
                 <TextField onChange={this.handleChange}
                   required
                   variant="outlined"
-                  required
                   fullWidth
                   name="category"
                   label="Categories"

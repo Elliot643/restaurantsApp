@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import './LandingPage.css';
-
+import CookieConsent, { Cookies } from "react-cookie-consent";  
 
 
 
@@ -99,14 +99,14 @@ class LandingPage extends React.Component {
         padding: theme.spacing(6),
       },
     }));
-    
+
 
     const cards = this.state.resturantArray
-      .map(card =>(
+      .map(card => (
         <Grid item key={card} xs={12} sm={6} md={4}>
           <Card className={classes.card}>
 
-            <img src="https://source.unsplash.com/random" alt="restaurant"className="img-fluid"></img>
+            <img src="https://source.unsplash.com/random" alt="restaurant" className="img-fluid"></img>
             <CardContent className={classes.cardContent}>
               <Typography gutterBottom variant="h5" component="h2">
                 {card.name}
@@ -117,8 +117,8 @@ class LandingPage extends React.Component {
               Rating : {}
             </CardContent>
             <CardActions>
-                        <Link to= {{ pathname: '/resturant/' + card.id }} className="btn btn-primary">View</Link>
-                </CardActions>
+              <Link to={{ pathname: '/resturant/' + card.id }} className="btn btn-primary">View</Link>
+            </CardActions>
           </Card>
         </Grid>
       ))
@@ -126,6 +126,17 @@ class LandingPage extends React.Component {
     //Here we call on the varibiles that contains the components and puts them in a div.
     return (
       <React.Fragment>
+
+      <CookieConsent
+          location="bottom"
+          buttonText="Great thanks"
+          cookieName="myAwesomeCookieName2"
+          style={{ background: "#2B373B" }}
+          buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+          expires={50}
+        >
+          Hey Craig! No we are not using cookies if you are wondering!! 
+        </CookieConsent>
         <div className={classes.root}>
           <Grid className={classes.body} container spacing={3}>
 

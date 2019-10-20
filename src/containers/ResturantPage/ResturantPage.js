@@ -35,7 +35,7 @@ class ResturantPage extends React.Component {
     var navMenu 
     console.log(this.state.restaurantObj )
     console.log(sessionStorage.userName )
-      if (this.state.restaurantObj.ownerName === sessionStorage.username){
+      if (this.state.restaurantObj.ownerName === sessionStorage.username &&sessionStorage.userName !== undefined   ){
         navMenu = <div>
         <Button href="/restaurant/update" color="primary" variant="outlined">
             Edit Restaurant
