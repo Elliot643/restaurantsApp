@@ -130,7 +130,7 @@ class LandingPage extends React.Component {
 
             </CardContent>
             <CardActions>
-              <Button to="/restaurant/:id" size="small" color="primary" value={card.id}>
+              <Button  to={{ pathname: '/restaurant/' + card.id}} size="small" color="primary" value={card.id}>
                 View
                   </Button>
             </CardActions>

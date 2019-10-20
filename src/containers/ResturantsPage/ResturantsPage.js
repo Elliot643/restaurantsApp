@@ -32,7 +32,7 @@ class ResturantsPage extends React.Component {
       axios.get('https://restaurantbackend-apis.herokuapp.com/review/getAll'),
 
     ])
-<
+
    .then(([res1, res2]) => {
      this.setState({
       resturantsArray: res1.data,

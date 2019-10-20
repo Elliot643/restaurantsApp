@@ -21,7 +21,8 @@ class AddResturantPage extends React.Component {
       name: "",
       address: "",
       category: "",
-      description: ""
+      description: "",
+      user_id : ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -45,7 +46,9 @@ class AddResturantPage extends React.Component {
       name: this.state.name,
       address: this.state.address,
       category: this.state.category,
-      description: this.state.description
+      description: this.state.description,
+      user_id : sessionStorage.userID
+
     }).then(function (response) {
       console.log(response);
     }).catch(function (error) {
@@ -142,7 +145,7 @@ class AddResturantPage extends React.Component {
                   required
                   fullWidth
                   name="category"
-                  label="Password"
+                  label="Categories"
                   type="text"
                   id="category"
                 />

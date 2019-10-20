@@ -1,6 +1,8 @@
 import React from 'react';
 import MapComponent from '../../components/MapComponent/MapComponent';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
+
 import './ResturantPage.css';
 
 
@@ -19,7 +21,6 @@ class ResturantPage extends React.Component {
         this.setState({
           restaurantObj: result[0].data
         })
-        console.log(result[0].data);
       })
 
     this.state = {
@@ -30,10 +31,23 @@ class ResturantPage extends React.Component {
 
 
   render() {
-          
-
+        
+    var navMenu 
+    console.log(this.state.restaurantObj )
+    console.log(sessionStorage.userName )
+      if (this.state.restaurantObj.ownerName === sessionStorage.username){
+        navMenu = <div>
+        <Button href="/restaurant/update" color="primary" variant="outlined">
+            Edit Restaurant
+        </Button>
+    </div>
+      }
+      else {
+        navMenu = <p>Rate this restaurant</p>
+      }
         return (
           <React.Fragment>
+              {navMenu}
             <h1>{this.state.restaurantObj.name}</h1>
 
             <div className="resturantBody">
