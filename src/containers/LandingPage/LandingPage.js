@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import ReviewComponent from '../../components/ReviewComponent/ReviewComponent';
 import Card from '@material-ui/core/Card';
+import Button from '@material-ui/core/Button';
+
 import Link from '@material-ui/core/Link'
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -10,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import './LandingPage.css';
-import CookieConsent, { Cookies } from "react-cookie-consent";  
+import CookieConsent from "react-cookie-consent";  
 
 
 
@@ -117,8 +119,11 @@ class LandingPage extends React.Component {
               Rating : {}
             </CardContent>
             <CardActions>
-              <Link to={{ pathname: '/resturant/' + card.id }} className="btn btn-primary">View</Link>
-            </CardActions>
+            <Button href={"/resturant/"+ card.id} color="primary" variant="outlined">
+            View
+        </Button>
+                    </CardActions>
+            
           </Card>
         </Grid>
       ))
@@ -126,9 +131,13 @@ class LandingPage extends React.Component {
     //Here we call on the varibiles that contains the components and puts them in a div.
     return (
       <React.Fragment>
-
+          <div>
+         
+            <br></br>
+            <br></br>
+          </div>
       <CookieConsent
-          location="bottom"
+          location="center"
           buttonText="Great thanks"
           cookieName="myAwesomeCookieName2"
           style={{ background: "#2B373B" }}
