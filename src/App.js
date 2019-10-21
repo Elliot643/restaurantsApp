@@ -14,6 +14,7 @@ import UserUpdatePage from './containers/UserUpdatePage/UserUpdatePage';
 
 import AddResturantsPage from './containers/AddResturantsPage';
 import SearchPage from './containers/SearchPage/SearchPage';
+import About from "./containers/Creators"
 
 
 class App extends Component {
@@ -37,6 +38,9 @@ class App extends Component {
                     />
                   <Route path="/resturants">
                       <ResturantsPage />
+                  </Route>
+                  <Route path="/about">
+                      <About />
                   </Route>
                   <Route path="/userupdate">
                       <UserUpdatePage />
