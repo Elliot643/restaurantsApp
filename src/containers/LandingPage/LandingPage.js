@@ -106,7 +106,7 @@ class LandingPage extends React.Component {
         <Grid item key={card} xs={12} sm={6} md={4}>
           <Card className={classes.card} >
             <div class="item">
-            <img src={"https://source.unsplash.com/random/"+card.id} alt="restaurant" className="img-fluid"></img>
+            <img src={"https://source.unsplash.com/random/"} alt="restaurant" className="img-fluid"></img>
             </div>
             <CardContent className={classes.cardContent}>
               <Typography gutterBottom variant="h5" component="h2">

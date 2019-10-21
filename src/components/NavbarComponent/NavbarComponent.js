@@ -2,6 +2,10 @@ import React from 'react';
 import './NavbarComponent.css';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
+    import userProfileIcon from '@material-ui/icons/AssignmentIndOutlined';
+
+
+
 
 import { Navbar, Nav, FormControl, Form } from 'react-bootstrap'
 class NavbarComponent extends React.Component {
@@ -24,6 +28,10 @@ class NavbarComponent extends React.Component {
         history.push("/search/" + this.state.value)
         event.preventDefault();
     }
+    logOut(){
+      sessionStorage.clear()
+      window.location = '/'
+    }
 
     render() {
 
@@ -32,10 +40,10 @@ class NavbarComponent extends React.Component {
         if (sessionStorage.loggedIn) {
             navMenu = 
                 <Nav className="mr-auto">
-                    <Nav.Link href="/user">User</Nav.Link>
+                    <Nav.Link href="/user" startIcon={<userProfileIcon />}><userProfileIcon /></Nav.Link>
                     <Nav.Link href="/resturants">Resturants</Nav.Link>
                     <Nav.Link href="/addRestaurant"> Add Resturants</Nav.Link>
-                    <Nav.Link href="/login">Log Out</Nav.Link>
+                    <Nav.Link onClick={()=>this.logOut()}>Log Out</Nav.Link>
 
                 </Nav>
               
