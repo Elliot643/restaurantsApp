@@ -40,8 +40,8 @@ class NavbarComponent extends React.Component {
             navMenu = 
                 <Nav className="mr-auto">
                     <Nav.Link href="/user">My Page</Nav.Link>
-                    <Nav.Link href="/resturants">Resturants</Nav.Link>
-                    <Nav.Link href="/addRestaurant"> Add Resturants</Nav.Link>
+                    <Nav.Link href="/resturants">Restaurants</Nav.Link>
+                    <Nav.Link href="/addRestaurant"> Add Restaurants</Nav.Link>
                     <Nav.Link onClick={()=>this.logOut()}>Log Out</Nav.Link>
 
                 </Nav>
@@ -54,7 +54,7 @@ class NavbarComponent extends React.Component {
             navMenu =
                 <Nav className="mr-auto">
                     <Nav.Link href="/signup">Sign up</Nav.Link>
-                    <Nav.Link href="/resturants">Resturants</Nav.Link>
+                    <Nav.Link href="/resturants">Restaurants</Nav.Link>
                     <Nav.Link href="/login">Log in</Nav.Link>
 
                 </Nav>

@@ -10,6 +10,7 @@ import Container from '@material-ui/core/Container';
 import axios from 'axios';
 import MapComponent from '../../components/MapComponent/MapComponent';
 import { Link } from 'react-router-dom';
+import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
 
 
 
@@ -83,43 +84,13 @@ class ResturantsPage extends React.Component {
           const cards = this.state.resturantsArray 
           .map(card => (
             <Grid item key={card} sm={12} >
-              <Card className={classes.card}>
-                <CardMedia
-                  className={classes.cardMedia}
-                  image="https://source.unsplash.com/random"
-                  title="Image title"
-                />
-                <CardContent className={classes.cardContent}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                  {card.name}
-                  </Typography>
-                  <Typography>
-                    {card.description}
-                  </Typography>
-                  <Typography>
-                    Address :{card.address}
-                  </Typography>
-                  <Typography>
-
-                 
-                    {reviews.map(rev =>(
-                 <div>
-                  <b>{rev.restaurantID === card.id ? rev.text : ""}</b> 
-               </div>
-                    )
-                  
-                    )}
-                  </Typography>
-                  <div className="mapDiv">
-                <MapComponent address={card.address} />
-
-    
-                </div>
-                </CardContent>
-                <CardActions>
-                <Link to= {{ pathname: '/resturant/' + card.id }} className="btn btn-primary">View</Link>
-                </CardActions>
-              </Card>
+          <RestaurantCard
+            name = {card.name}
+            address ={card.address}
+            id={card.id}
+            reviews={reviews}
+            
+          />
             </Grid>
           ))
         return (

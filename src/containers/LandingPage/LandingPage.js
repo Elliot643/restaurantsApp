@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import ReviewComponent from '../../components/ReviewComponent/ReviewComponent';
+import RestaurantCard from '../../components/RestaurantCard/RestaurantCard';
+
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import CardActions from '@material-ui/core/CardActions';
@@ -103,27 +105,12 @@ class LandingPage extends React.Component {
 
     const cards = this.state.resturantArray
       .map(card => (
-        <Grid item key={card} xs={12} sm={6} md={4}>
-          <Card className={classes.card} >
-            <div class="item">
-            <img src={"https://source.unsplash.com/random/"} alt="restaurant" className="img-fluid"></img>
-            </div>
-            <CardContent className={classes.cardContent}>
-              <Typography gutterBottom variant="h5" component="h2">
-                {card.name}
-              </Typography>
-              <Typography>
-                Address :{card.address}
-              </Typography>
-              Rating : {}
-            </CardContent>
-            <CardActions>
-            <Button href={"/resturant/"+ card.id} color="primary" variant="outlined">
-            View
-        </Button>
-                    </CardActions>
-            
-          </Card>
+        <Grid item key={card} xs={12} sm={6} md={4} >
+          <RestaurantCard
+            name = {card.name}
+            address ={card.address}
+            id={card.id}
+          />
         </Grid>
       ))
 
