@@ -28,7 +28,6 @@ class SearchPage extends React.Component{
 
             let allRestaurants = result[0].data;
             var filteredRestaurants = [];
-
             for(let i=0;i<allRestaurants.length;i++){
                 for(let x=0;x<allRestaurants[i].tags.length;x++){
                     if(allRestaurants[i].name.toLowerCase().includes(this.state.searchWord)||allRestaurants[i].tags[x].toLowerCase().includes(this.state.searchWord)){

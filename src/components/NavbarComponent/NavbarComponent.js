@@ -3,7 +3,7 @@ import './NavbarComponent.css';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar, Nav, FormControl, Form } from 'react-bootstrap'
 class NavbarComponent extends React.Component {
 
     constructor(props) {
@@ -30,8 +30,7 @@ class NavbarComponent extends React.Component {
 
         var navMenu;
         if (sessionStorage.loggedIn) {
-            navMenu = <nav>
-
+            navMenu = 
                 <Nav className="mr-auto">
                     <Nav.Link href="/user">User</Nav.Link>
                     <Nav.Link href="/resturants">Resturants</Nav.Link>
@@ -39,27 +38,21 @@ class NavbarComponent extends React.Component {
                     <Nav.Link href="/login">Log Out</Nav.Link>
 
                 </Nav>
-                <Nav>
-                </Nav>
+              
 
 
 
-            </nav>
+            
         } else {
-            navMenu = <nav>
+            navMenu =
                 <Nav className="mr-auto">
                     <Nav.Link href="/signup">Sign up</Nav.Link>
                     <Nav.Link href="/resturants">Resturants</Nav.Link>
                     <Nav.Link href="/login">Log in</Nav.Link>
 
                 </Nav>
-                <Nav>
-                </Nav>
                
-                {/* <Button href="/login" color="primary" variant="outlined" className={classes.link}>
-                    Log In
-        </Button> */}
-            </nav>
+              
         }
         return (
             <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -67,12 +60,11 @@ class NavbarComponent extends React.Component {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 {navMenu}
-                <form className="form-inline" onSubmit={this.handleSubmit}>
-                    <input className="form-control" value={this.state.value} onChange={this.handleChange} type="search" placeholder="Search" aria-label="Search" id="searchBar" />
-                    {/*<button id="submitBtn" href={'/search/' + this.state.value} type="submit">Search </button>*/}
-                    <Link to={{ pathname: '/search/' + this.state.value }} id="submitBtn">Search</Link>
-                </form>
+               
 
+                    <Form inline onSubmit={this.handleSubmit}>
+                        <FormControl type="text" placeholder="Search" className="mr-sm-2" value={this.state.value} onChange={this.handleChange} id="searchBar"/>
+                        <Link to={{ pathname: '/search/' + this.state.value }} id="submitBtn">Search</Link>                    </Form>
                 </Navbar.Collapse>
             </Navbar>
             // <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="theNavbar">

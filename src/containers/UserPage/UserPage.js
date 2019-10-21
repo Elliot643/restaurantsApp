@@ -1,73 +1,40 @@
+
+
 import React from 'react';
-import axios from 'axios';
-import {Link} from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import './UserPage.css';
+import Reviewer from './Reviewer.js';
+import RestaurantOwner from './OwnerPage.js';
+
+class Dashboard extends React.Component {
 
 
-
-class UserPage extends React.Component {
-
-
-constructor(props) {
-  super(props);
-
-  this.state = {
-    userArray: [],
-   // id: 1,
-    error : null
-  }
+    render() {
+        switch(sessionStorage.role){
+            case "1":
+                return (
+                    <div align="center">
+                        <h1>Welcome as a Reviewer</h1>
+                        <Reviewer 
+                            userid={this.userid}
+                        /> 
+                    </div>
+                );
+            case "2":
+                return (
+                    <div align="center">
+                        <h1>Welcome as a Restaurant Owner</h1>
+                        <RestaurantOwner 
+                            userid={sessionStorage.userID}
+                        />
+                    </div>
+                );
+            default:
+                return (
+                    <div align="center">
+                        <h1>Please log in first</h1>
+                    </div>
+                );
+        }
+    }
 }
 
-  componentDidMount() {
-    Promise.all([
-      //axios.get('https://restaurantbackend-apis.herokuapp.com/user/id/' + this.state.id)
-      axios.get('https://restaurantbackend-apis.herokuapp.com/user/getAll')
-    ])
-   .then(([response]) => {
-     this.setState({
-      userArray: response.data
-    })
-
-    console.log(response.data);
-   })
-  }
-
-  
-
-  render() {  
-
-    const users = this.state.userArray.map(response =>(
-      <div>
-        {response.username}
-        {response.email}
-      </div>
-    ))
-
-    const useStyles = makeStyles(theme => ({
-      button: {
-        margin: theme.spacing(1),
-      }
-    }));
-
-    return (
-      <div>
-
-        <Link to="/UserUpdatePage">
-          <Button renderAs="button" variant="contained" color="primary" className={useStyles.button}>
-            <span>Update user</span>
-          </Button>
-        </Link><br></br>
-        
-
-      {users}
-
-      </div>
-    );
-  }
-
-}
-export default UserPage;
-
-
+export default Dashboard;

@@ -43,7 +43,9 @@ class ResturantPage extends React.Component {
     </div>
       }
       else {
-        navMenu = <p>Rate this restaurant</p>
+        navMenu = <Button href="/restaurant/review" color="primary" variant="outlined">
+        Add review
+    </Button>
       }
         return (
           <React.Fragment>

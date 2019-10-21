@@ -22,8 +22,9 @@ class App extends Component {
           <Router>
             <NavbarComponent />
                 <Switch>
-                  <Route path="/user">
-                      <UserPage />
+                  <Route path="/user"
+                  render={() =><UserPage roleid={sessionStorage.role} userid={sessionStorage.userID}></UserPage> }
+                  >
                   </Route>
                   <Route path="/login">
                       <LoginPage />
@@ -47,10 +48,8 @@ class App extends Component {
                         render={(props) =><SearchPage {...props}/>}
                     />
                   <Route path="/">
-                      <LandingPage />
+                      <LandingPage/>
                   </Route>
-                  
-                  
                 </Switch>
           </Router>
       );

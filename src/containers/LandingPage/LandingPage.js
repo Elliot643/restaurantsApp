@@ -3,8 +3,6 @@ import axios from 'axios';
 import ReviewComponent from '../../components/ReviewComponent/ReviewComponent';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
-
-import Link from '@material-ui/core/Link'
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
@@ -48,7 +46,7 @@ class LandingPage extends React.Component {
 
 
   render() {
-
+    console.log(this.props.roleid)
     const review = this.state.reviewsArray.map(review => (
       <ReviewComponent
         reviewer={review.reviewer}
@@ -82,10 +80,10 @@ class LandingPage extends React.Component {
         paddingBottom: theme.spacing(8),
       },
       card: {
-        height: '10%',
+        height: "18rem",
         marginTop: '10%',
-        display: 'flex',
         flexDirection: 'column',
+        width:" 18rem;"
       },
       body: {
         paddingTop: theme.spacing(4),
@@ -106,9 +104,10 @@ class LandingPage extends React.Component {
     const cards = this.state.resturantArray
       .map(card => (
         <Grid item key={card} xs={12} sm={6} md={4}>
-          <Card className={classes.card}>
-
-            <img src="https://source.unsplash.com/random" alt="restaurant" className="img-fluid"></img>
+          <Card className={classes.card} >
+            <div class="item">
+            <img src={"https://source.unsplash.com/random/"+card.id} alt="restaurant" className="img-fluid"></img>
+            </div>
             <CardContent className={classes.cardContent}>
               <Typography gutterBottom variant="h5" component="h2">
                 {card.name}
@@ -137,7 +136,7 @@ class LandingPage extends React.Component {
             <br></br>
           </div>
       <CookieConsent
-          location="center"
+          location="bottom"
           buttonText="Great thanks"
           cookieName="myAwesomeCookieName2"
           style={{ background: "#2B373B" }}
