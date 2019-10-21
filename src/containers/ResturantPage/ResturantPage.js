@@ -76,9 +76,7 @@ handleSubmit(event) {
     </div>
       }
       else {
-        this.state.navMenu = <button onClick={() => {this.setTextField()}} >
-        Add review
-        </button>
+      
       }
         return (
           <React.Fragment>

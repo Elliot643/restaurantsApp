@@ -39,7 +39,7 @@ class NavbarComponent extends React.Component {
         if (sessionStorage.loggedIn) {
             navMenu = 
                 <Nav className="mr-auto">
-                    <Nav.Link href="/user" startIcon={<userProfileIcon />}><userProfileIcon /></Nav.Link>
+                    <Nav.Link href="/user">My Page</Nav.Link>
                     <Nav.Link href="/resturants">Resturants</Nav.Link>
                     <Nav.Link href="/addRestaurant"> Add Resturants</Nav.Link>
                     <Nav.Link onClick={()=>this.logOut()}>Log Out</Nav.Link>
