@@ -67,6 +67,7 @@ class NavbarComponent extends React.Component {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 {navMenu}
+                <Nav.Link href="/about">About</Nav.Link>
                
 
                     <Form inline onSubmit={this.handleSubmit}>
