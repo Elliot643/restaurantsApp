@@ -31,7 +31,6 @@ constructor(props) {
      this.setState({
       userArray: response.data
     })
-
     console.log(response.data);
    })
   }
