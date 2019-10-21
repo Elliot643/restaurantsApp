@@ -52,7 +52,7 @@ class LandingPage extends React.Component {
         reviewer={review.reviewer}
         text={review.text}
         resturant_name={review.restaurantName}
-        rating={review.rating}
+        rating={review.rating.$numberDecimal}
       />
     ))
 

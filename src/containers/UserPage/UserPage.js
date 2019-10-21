@@ -14,7 +14,7 @@ class Dashboard extends React.Component {
                     <div align="center">
                         <h1>Welcome as a Reviewer</h1>
                         <Reviewer 
-                            userid={this.userid}
+                            userid={sessionStorage.userid}
                         /> 
                     </div>
                 );

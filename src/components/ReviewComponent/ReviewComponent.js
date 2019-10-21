@@ -17,7 +17,7 @@ const ReviewComponent = (props) => {
                         <p>{props.reviwer}</p>
                     </div>
                     <div className="ratingDiv">
-                        <p>Rating</p>
+                        <p>Ratins : {props.rating}</p>
                     </div>
                 </div> 
 

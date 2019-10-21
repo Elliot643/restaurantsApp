@@ -29,8 +29,7 @@ class NavbarComponent extends React.Component {
         event.preventDefault();
     }
     logOut(){
-      sessionStorage.clear()
-      window.location = '/'
+  
     }
 
     render() {
